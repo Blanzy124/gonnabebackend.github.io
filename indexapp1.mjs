@@ -26,7 +26,7 @@ const filesPromises = files.map(async (file) => {
   }
   const fileSize = stats.size;
   const fileModified = stats.mtime.toLocaleString();
-  return `${file} ${fileSize.toString()} ${fileModified}`;
+  return `${file.padEnd(20)} ${fileSize.toString()} ${fileModified.padStart(10)}`;
 });
 const filesInfo = await Promise.all(filesPromises);
 filesInfo.forEach((fileInfo) => console.log(fileInfo));
