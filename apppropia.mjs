@@ -1,43 +1,42 @@
-import fs from 'node:fs/promises'
-import { console } from 'node:inspector'
-import path from 'node:path'
+import fs from 'node:fs/promises';
+import path from 'node:path';
+ console.log('ejecutando...');
+ 
+ const folder = path.join('C:', 'Users', 'samue', 'OneDrive', 'Desktop', 'back');
+ const folderName = path.basename(folder)
+ const folderStatus = await fs.stat(folder)
 
+fs.readdir(folder)
+.then(files =>{
+ files.forEach(file =>{
+  Promise.all(file =>{
+   fs.readFile(file, 'utf-8')
+  })
+  
+ })
+})
 
-function mostrar (){
- console.log('ejecutando')
- let folder
  try{
-  let folder = path.join('C:', 'Users', 'samue', 'OneDrive', 'Desktop', 'back')
-  console.log('se leyo')
+
  }catch{
-  const folderName = path.basename(folder)
-  console.error(`no hay o no son lejibles los elemos de ${folderName}`)
+
+  console.error(`no hay o no son lejibles los elementos en tu carpeta ${folderName}`);
+  process.exit(1)
  }
-}
-mostrar()
 
+//BUSCAR LA MANERA DE PODER USAR EL READFILE JUNTO CON AWAIT
+ 
+ 
+ 
 
+ 
+ 
+ 
+ 
 
-
-
-
-
-
-
-
-console.log('ejecutando raiz')
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+ 
+ 
 
 
 
@@ -49,14 +48,9 @@ console.log('ejecutando raiz')
 
 
 
-
-
-
-
-
-
-
-
+//asegurarse que tengan algun tipo de informacion,
+//alternativa en caso de que este bacio (NaN) el archivo(sera igual a cero)
+//asegurarse que sean numeros y no letras
 
 
 
