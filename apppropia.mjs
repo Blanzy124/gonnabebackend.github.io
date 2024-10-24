@@ -5,46 +5,75 @@ console.log('ejecutando...');
  
 const folder = path.join('C:', 'Users', 'samue', 'OneDrive', 'Desktop', 'back');
 const folderName = path.basename(folder)
+
+
+let filesNames;
 try{
- fs.readdir(folder).then(files =>{ //filtro de una carpeta vacia
-  if(files == 0){
-   console.log(`no hay nada en "${folderName}"`)
-   return;
-  };
-  files.forEach(file =>{
-   let filesLocation = path.join(folder, file)
-   fs.readFile(filesLocation).then
-  })
- 
- })
+ filesNames = fss.readdirSync(folder)
+ if(filesNames == 0){
+  console.error(`no hay nada en: ${folderName}`)
+  process.exit(1)
+ }
 }catch{
- console.error(`algo salio mal`)
+ console.error(`algo salio mal en la lectura de archivos del folder: ${folderName}`)
+ process.exit(1)
+}
+
+
+let filesLocation;
+try{
+ filesNames.forEach(fileName =>{
+  filesLocation = path.join(folder, fileName)
+  fs.readFile(filesLocation, 'utf-8',).then(fileRead =>{
+   let number = parseFloat(fileRead) + parseFloat(fileRead);
+   
+   console.log(number)
+  })
+
+ })
+
+}catch{
+ console.error(`algo asalio mal en la operacion`)
  process.exit(1)
 }
 
 
 
- 
- 
-
-
-//BUSCAR LA MANERA DE PODER USAR EL READFILE JUNTO CON AWAIT
- 
- 
- 
-
- 
- 
- 
- 
-
- 
- 
- 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+try{
+ //if(filesNames == 0){
+  // console.log(`no hay nada en "${folderName}"`)
+  // return;
+  //};
+  
+ }catch{
+  console.error(`algo salio mal`)
+  process.exit(1)
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+
+//meter todo readfile en una variable
 
 
 
