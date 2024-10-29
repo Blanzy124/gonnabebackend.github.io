@@ -18,59 +18,30 @@ try{
  console.error(`algo salio mal en la lectura de archivos del folder: ${folderName}`)
  process.exit(1)
 }
-
-
+let numbersAvailables = parseFloat(filesNames.length);
 let filesLocation;
+let showResult = 0;
 try{
- filesNames.forEach(fileName =>{
-  filesLocation = path.join(folder, fileName)
+ filesNames.forEach(fileName =>{ 
+  filesLocation = path.join(folder, fileName);
   fs.readFile(filesLocation, 'utf-8',).then(fileRead =>{
-   let number = parseFloat(fileRead) + parseFloat(fileRead);
-   
-   console.log(number)
+   let numbers = parseFloat(fileRead);
+   if(isNaN(fileRead)){
+    console.error(`alguno de los archivos en ${folderName} no contiene datos, por favor, increse archivos validos.`)
+   return;
+   }
+   numbersAvailables--; 
+   showResult += numbers;
+   if(numbersAvailables === 0){
+    console.log(showResult)
+   }
   })
-
  })
-
 }catch{
  console.error(`algo asalio mal en la operacion`)
  process.exit(1)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-try{
- //if(filesNames == 0){
-  // console.log(`no hay nada en "${folderName}"`)
-  // return;
-  //};
-  
- }catch{
-  console.error(`algo salio mal`)
-  process.exit(1)
- }
- 
- 
- 
- 
- 
- 
-
- 
 
 
 //meter todo readfile en una variable
