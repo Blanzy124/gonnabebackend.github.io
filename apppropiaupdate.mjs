@@ -6,7 +6,6 @@ console.log('ejecutando...');
 const folder = path.join('C:', 'Users', 'samue', 'OneDrive', 'Desktop', 'back');
 const folderName = path.basename(folder)
 
-
 let filesNames;
 try{
  filesNames = fss.readdirSync(folder)
@@ -24,18 +23,19 @@ let showResult = 0;
 try{
  filesNames.forEach(fileName =>{ 
   filesLocation = path.join(folder, fileName);
-  fs.readFile(filesLocation, 'utf-8',).then(fileRead =>{
-   let numbers = parseFloat(fileRead);
-   if(isNaN(numbers)){
-    console.error(`alguno de los archivos en ${folderName} no contiene datos o contiene caracteres que no son numeros, por favor, increse caracteres validos validos.`)
-   return;
-   }
-   printerSwitch--; 
-   showResult += numbers;
+  async function borrar() {
+   try{
+    await fs.rm(filesLocation);
+    printerSwitch--;
    if(printerSwitch === 0){
-    console.log(showResult)
+    console.log(`se borraron los archivos de ${folderName}`)
    }
-  })
+   }catch{
+    console.error(`algo salio mal al borrar`)
+    return
+   }
+  }
+  borrar() 
  })
 }catch{
  console.error(`algo asalio mal en la operacion`)
