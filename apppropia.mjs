@@ -10,7 +10,7 @@ const folderName = path.basename(folder)
 let filesNames;
 try{
  filesNames = fss.readdirSync(folder)
- if(filesNames === 0){
+ if(filesNames == 0){
   console.error(`no hay nada en: ${folderName}`)
   process.exit(1)
  }
