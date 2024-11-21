@@ -8,6 +8,8 @@ export const folderName = path.basename(folder)
 
 export function creation(quantity){
   var quantity = parseInt(quantity)
+
+  if(quantity => 1){
   let filesNames;
   var switchs = quantity;
   
@@ -34,8 +36,11 @@ export function creation(quantity){
   }
   console.log(`finalizado`)
 }
+else{
+  console.log(`El numero debe ser mayor o igual que 1`)
+}
 
-
+}
 
 
 
