@@ -1,15 +1,17 @@
 import fss from 'node:fs'
 import fs from 'node:fs/promises';
 import path from 'node:path';
- 
-const folder = path.join('C:', 'Users', 'samue', 'OneDrive', 'Desktop', 'back');
-export const folderName = path.basename(folder)
+import { folder } from './app.mjs'; 
+
 
 
 export function creation(quantity){
+  const folderName = path.basename(folder)
+  console.log('Cargando...');
+
   var quantity = parseInt(quantity)
 
-  if(quantity => 1){
+  if(quantity > 0 && quantity <= 8000){
   let filesNames;
   var switchs = quantity;
   
@@ -37,7 +39,7 @@ export function creation(quantity){
   console.log(`finalizado`)
 }
 else{
-  console.log(`El numero debe ser mayor o igual que 1`)
+  console.log(`El numero debe ser mayor o igual que 1 y solo se pueden crear un maximo de 8000 valores`)
 }
 
 }

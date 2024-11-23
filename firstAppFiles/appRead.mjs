@@ -1,16 +1,16 @@
 import fss from 'node:fs'
 import fs from 'node:fs/promises';
 import path from 'node:path';
-console.log('ejecutando...');
+import { folder } from './app.mjs';
  
-const folder = path.join('C:', 'Users', 'samue', 'OneDrive', 'Desktop', 'back');
-const folderName = path.basename(folder)
 
 
-let filesNames;
+
 
 export function reader(){
-
+ const folderName = path.basename(folder)
+ let filesNames;
+ console.log('Cargando...');
  try{
   filesNames = fss.readdirSync(folder)
   if(filesNames == 0){

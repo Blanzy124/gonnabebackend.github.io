@@ -5,8 +5,9 @@
 //const location = path.join('.');
 //const stats = fs.stat(location);
 
+import { rejects } from 'node:assert';
 import fs from 'node:fs/promises';
-import path  from 'node:path';
+import path, { resolve }  from 'node:path';
 const carpetas = process.argv[2] ?? '.';
 let files;
 try {
@@ -30,10 +31,6 @@ const filesPromises = files.map(async (file) => {
 });
 const filesInfo = await Promise.all(filesPromises);
 filesInfo.forEach((fileInfo) => console.log(fileInfo));
-
-
-
-
 
 
 
