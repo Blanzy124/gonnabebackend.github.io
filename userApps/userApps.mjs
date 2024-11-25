@@ -2,14 +2,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { create } from './userCreation.mjs';
 import inquirer from 'inquirer';
+import pico from 'picocolors';
+
+
 export var folder = path.join('C:', 'Users', 'samue', 'OneDrive', 'Desktop', 'companyUsers');
 
 
-let tOf;
 
 function verifyUserExist(userName, dataBase){
  return dataBase.includes(`${userName}.txt`)
 }
+
 function nameQuestion(){
 
  inquirer.prompt([{
@@ -20,7 +23,6 @@ function nameQuestion(){
   fs.readdir(folder, (err, dataBase)  => {
    if(err){
     console.error(`Error`)
-    tOf = false;
    }
 
 
@@ -46,11 +48,6 @@ function nameQuestion(){
   })
 })
 }   
- 
- 
- 
-
-
 nameQuestion()
 
 

@@ -1,7 +1,7 @@
-import fs from 'node:fs'
-import { folder } from './userApps.mjs'
-import path from 'node:path'
-
+import fs from 'node:fs';
+import { folder } from './userApps.mjs';
+import path from 'node:path';
+import pico from 'picocolors';
 
 
 export function create(userName, password, date) {
@@ -11,7 +11,7 @@ export function create(userName, password, date) {
     console.error(`algo salio mal en la escritura del archivo`)
     return;
    }
-   console.log(`Creacion del usuario exitosa`)
+   pico.green(console.log(`Creacion del usuario exitosa`))
   })
   
 
